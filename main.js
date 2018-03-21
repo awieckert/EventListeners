@@ -69,10 +69,19 @@ const buildDomString = (studentArray) => {
         stringToPrint +=   `<h1>${student.firstName} ${student.lastName}</h1>`;
         stringToPrint +=   `<h3>${student.catchPhrase}</h3>`;
         stringToPrint +=   `<img src="${student.avatar}" alt="">`;
-        stringToPrint +=   `<button class="button" type="submit">Brought Pie</button>`;
+        stringToPrint +=   `<button class="card-button" type="submit">Brought Pie</button>`;
         stringToPrint += `</div>`;
     });
     printToDom(stringToPrint, "card-holder");
 };
 
 buildDomString(students);
+
+const allMyButtons = document.getElementsByClassName('card-button');
+console.log("allmyButtons: ", allMyButtons);
+for(let i = 0; i < allMyButtons.length; i++){
+    allMyButtons[i].addEventListener('click', (e) => {
+        console.log("Event! ", e);
+    });
+}
+
