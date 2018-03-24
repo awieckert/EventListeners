@@ -77,18 +77,28 @@ const buildDomString = (studentArray) => {
 
 buildDomString(students);
 
+
+
 const makeCardGreen = (e) => {
-    let buttonTarget = e.target.parentNode;
-    buttonTarget.className += " green";
+    let buttonTarget = e.target.parentNode.firstChild;
+    // buttonTarget.className += " green";
+    buttonTarget.classList.add("green");
 }
 
+
+const makeButtons = () => {
 const allMyButtons = document.getElementsByClassName('card-button');
-console.log("allmyButtons: ", allMyButtons);
+
 for(let i = 0; i < allMyButtons.length; i++){
-    allMyButtons[i].addEventListener('click', (e) => {
-        console.log("Event! ", e);
-        makeCardGreen(e);
-    });
+    allMyButtons[i].addEventListener('click', makeCardGreen);
+    }
 }
+
+const startApplication = () => {
+    buildDomString(students);
+    makeButtons();
+};
+
+startApplication();
 
 
